@@ -1,0 +1,86 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: borderbox;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+.container {
+  height: 800px;
+  width: 1600px;
+  background: #fafafa;
+  border-radius: 16px;
+  box-shadow: 0 0 10px 2px rgba(50, 50, 50, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.semaforo {
+  height: 600px;
+  width: 200px;
+  border-radius: 16px;
+  box-shadow: 0 0 5px 5px rgba(50, 50, 50, 0.05);
+  background: #666;
+  border: 3px solid #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.semaforo.red > .red {
+  filter: contrast(1);
+}
+.semaforo.green > .green {
+  filter: contrast(1);
+}
+.semaforo.yellow > .yellow {
+  filter: contrast(1);
+}
+
+.semaforo.ticking.green > .green {
+  animation: tick 0.5s infinite;
+}
+.semaforo.ticking.yellow > .yellow {
+  animation: tick 0.5s infinite alternate;
+}
+
+@keyframes tick {
+  0% {
+    filter: contrast(1);
+  }
+  50% {
+    filter: contrast(1);
+  }
+  to {
+    filter: contrast(0.2);
+  }
+}
+.light {
+  width: 160px;
+  height: 160px;
+  border-radius: 200px;
+  border: 1px solid #444;
+  box-shadow: 0 0 5px 5px rgba(20, 20, 20, 0.1);
+  filter: contrast(0.2);
+  transition: all 0.2s;
+}
+
+.light.red {
+  background: red;
+}
+.light.yellow {
+  background: yellow;
+}
+.light.green {
+  background: green;
+}
