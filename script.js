@@ -154,12 +154,9 @@ const start = () => {
 
   const update = () => {
     const time = Date.now();
-
     if (nexUpdate < time) {
       nexUpdate = time + controller.next();
       controller.updateDom();
-
-      controller.print();
     }
     requestAnimationFrame(update);
   };
